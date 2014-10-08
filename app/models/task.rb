@@ -10,5 +10,10 @@ class Task < ActiveRecord::Base
     define_method "#{attribute}!" do
       update_attribute(attribute, true)
     end
+
+    ### Add complete support
+    define_method "#{attribute}?" do
+      send(attribute)
+    end
   end
 end
