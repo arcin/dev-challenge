@@ -25,6 +25,26 @@ a {
     background-color: #F9F9F9;
     border-bottom: 1px solid #DDD;
   }
+
+  //### Center archived tasks button
+  .panel-heading {
+    position: relative;
+  }
+}
+
+//### Center archived tasks button
+.btn-group {
+  position: static;
+  a {
+    &:first-child {
+      height: 34px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 138px;
+    }
+  }
 }
 
 //### Style completed tasks
