@@ -12,8 +12,9 @@ class TasksController < ApplicationController
       @query = params['q']
 
       @tasks = Task.where(
-        Task.arel_table[:title].matches(@query).or(
-          Task.arel_table[:description].matches(@query)
+        ### Fix issues with task searching
+        Task.arel_table[:title].matches("%#{@query}%").or(
+          Task.arel_table[:description].matches("%#{@query}%")
         )
       )
     else
