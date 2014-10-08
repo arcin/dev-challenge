@@ -52,4 +52,15 @@ tr {
   &.complete {
     border: 5px #6ADD6A solid;
   }
+  //### Style buttons
+  a {
+    margin-right: 1%;
+  }
+}
+
+//### Style buttons
+th {
+  &.actions {
+    width: 20%;
+  }
 }
