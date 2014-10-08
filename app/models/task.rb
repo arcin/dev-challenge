@@ -1,4 +1,7 @@
 class Task < ActiveRecord::Base
+  ### Add multiuser support
+  belongs_to :user
+
   {
     complete: { completed: true, incomplete: false },
     archived: { archived: true, unarchived: false }
