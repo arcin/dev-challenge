@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  ### Add archive support
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :archive]
 
   # GET /tasks
   # GET /tasks.json
@@ -73,6 +74,20 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
+    end
+  end
+
+  ### Add archive support
+  def archive
+    respond_to do |format|
+      if @task.update(archived: true)
+        format.html { redirect_to tasks_path, notice: 'Task was successfully updated.' }
+        format.json { head :no_content }
+        format.js
+      else
+        format.html { render action: 'index' }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
     end
   end
 
