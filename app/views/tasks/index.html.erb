@@ -37,8 +37,8 @@
 
         <tbody>
           <% @tasks.each do |task| %>
-            <%### Add complete support  %>
-            <tr id="<%= dom_id(task) %>" class="<%= 'complete' if task.complete? %>">
+            <%### Add complete support  %> <%### Style completed tasks  %>
+            <tr id="<%= dom_id(task) %>" class="<%= complete_class(task) %>">
               <%### Add complete support  %>
               <td><%= check_box_tag :complete, task.id, task.complete, class: "complete-box" %></td>
               <td><%= task.title.html_safe %></td>
