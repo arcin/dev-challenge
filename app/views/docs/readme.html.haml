@@ -7,6 +7,10 @@
       .panel-body
         :markdown
           #{IO.read('tasklist.md')}
+    /### REVIEW: The information in this file is already on the front page.
+    /### Users might notice the redundancy. They might question the devs.
+    /### They might stop using the site. All might be lost. It's go time.
+    /### DRY or die. Seriously though, it might be a good idea to remove it.
 
     .panel.panel-default
       .panel-heading
@@ -21,3 +25,25 @@
       .panel-body
         :markdown
           #{IO.read('section_E.md')}
+    /### REVIEW: First of all... dude. Using IO to stream in markdown and form a view
+    /### is pretty cool. Thats some first class ingenuity. It almost hurts to
+    /### recommend against it, but I think it's gotta go. Here are a few things
+    /### to consider:
+
+    /### - Its not the rails way. They're being loaded in from the project root.
+    /###   Its complicating the V in MVC. Put views in the views folder.
+
+    /### - They aren't legitimate partials. You're interpolating the result of
+    /###   a stream of markdown and then using haml's :markdown to compile that.
+    /###   It's pretty cool, but overcomplicated.
+
+    /### - If you want to stick to the markdown, a gem that handles all that cool stuff
+    /###   could be the way to go. The current method requires too much overhead,
+    /###   cluttering up the application root. The paths to the files would also
+    /###   have to be static if you move things around. You thinking what I'm thinking?
+    /###   Yeah, convention over configuration will fix this, no problem.
+
+    /###   Also, I never realized how much I appreciated multiline comments until I
+    /###   learned that haml doesn't have them.
+
+
