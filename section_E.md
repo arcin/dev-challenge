@@ -26,7 +26,19 @@ It also, unfortunately, uses Erlang syntax for configuration.
 
 Provide the contents of a simple configuration file which disables TCP keepalive.  Note: RabbitMQ default to TCP keepalive being on ;).
 
-*** PLACE THE RabbitMQ CONFIG CONTENTS HERE ***
+```
+[
+  {rabbit, [
+    {tcp_listeners,[]},
+    {tcp_listen_options, [binary, {packet,        raw},
+                                  {reuseaddr,     true},
+                                  {backlog,       128},
+                                  {nodelay,       true},
+                                  {exit_on_close, false},
+                                  {keepalive, false}]
+  ]}
+].
+```
 
 ### Testing & Code Review
 
