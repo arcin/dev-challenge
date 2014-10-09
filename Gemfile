@@ -42,6 +42,9 @@ gem 'redcarpet'
 ### Add twitter integration
 gem 'twitter'
 
+### Add ListWise Integration
+gem 'httparty', require: false
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
