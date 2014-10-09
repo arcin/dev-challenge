@@ -54,6 +54,12 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    ### Add twitter integration
+    if params[:task][:complete].downcase == 'true'
+      client = create_twitter_client
+      client.update("#{@task.title}")
+    end
+
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to tasks_path, notice: 'Task was successfully updated.' }

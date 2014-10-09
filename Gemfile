@@ -39,6 +39,9 @@ gem 'jbuilder', '~> 1.2'
 # Add RedCarpet gem for Markdown parsing.
 gem 'redcarpet'
 
+### Add twitter integration
+gem 'twitter'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
